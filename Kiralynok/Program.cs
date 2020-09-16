@@ -18,6 +18,7 @@ namespace Kiralynok
         private static void Elhelyez()
         {
             
+
         }
         private static void FajlbaIr()
         {
