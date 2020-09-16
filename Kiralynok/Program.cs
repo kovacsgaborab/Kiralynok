@@ -9,7 +9,7 @@ namespace Kiralynok
 
     class Tabla
     {
-        private char[,] T = new char[8, 8];
+        private char[,] T; //csak a konstruktorban definiáljuk, a feladat alapján
 
         private char UresCella;
         private int UresOszlopokSzama;
@@ -30,15 +30,24 @@ namespace Kiralynok
         }
         public Tabla(char ch)
         {
+            T = new char[8, 8];
+            UresCella = ch;
 
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    T[i, j] = UresCella;
+                }
+            }
         }
         private int UresOszlop()
         {
-
+            return 0;
         }
         private int UresSor()
         {
-
+            return 0;
         }
     }
     class Program
