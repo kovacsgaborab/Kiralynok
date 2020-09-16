@@ -15,18 +15,25 @@ namespace Kiralynok
         private int UresOszlopokSzama;
         private int UresSorokSzama;
 
-        private static void Elhelyez()
+        public void Elhelyez()
         {
             
 
         }
-        private static void FajlbaIr()
+        public void FajlbaIr()
         {
             
         }
-        private static void Megjelenit()
+        public void Megjelenit()
         {
-
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    Console.Write(T[i, j]);
+                }
+                Console.WriteLine();
+            }
         }
         public Tabla(char ch)
         {
@@ -41,11 +48,11 @@ namespace Kiralynok
                 }
             }
         }
-        private int UresOszlop()
+        public int UresOszlop()
         {
             return 0;
         }
-        private int UresSor()
+        public int UresSor()
         {
             return 0;
         }
@@ -54,7 +61,12 @@ namespace Kiralynok
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Királynők feladat");
 
+            Tabla t = new Tabla('#');
+
+            Console.WriteLine("Üres Ttábla");
+            t.Megjelenit();
 
             Console.ReadKey();
         }
