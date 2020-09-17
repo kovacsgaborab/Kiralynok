@@ -16,7 +16,7 @@ namespace Kiralynok
         private int UresOszlopokSzama;
         private int UresSorokSzama;
 
-        
+        static Random vel = new Random();
 
         public void Elhelyez(int N)
         {
@@ -25,8 +25,6 @@ namespace Kiralynok
             //      - Véletlen sor és oszlop kell
             //      - Elhelyezzük a K-t
             //              HA!!! üres --> nincs benne "#"
-            Random vel = new Random();
-
 
 
             for (int i = 0; i < N; i++)
@@ -71,13 +69,25 @@ namespace Kiralynok
                 }
             }
         }
-        public int UresOszlop()
+        public bool UresOszlop(int oszlop)
         {
-            return 0;
+            int a = 0;
+            bool vank = true;
+            while (T[a, oszlop] != 'K')
+            {
+                if (T[a, oszlop] == 'K')
+                {
+                    vank = false;
+                }
+                a++;
+            }
+
+            return vank;
+
         }
-        public int UresSor()
+        public bool UresSor(int sor)
         {
-            return 0;
+            return false;
         }
     }
     class Program
@@ -94,6 +104,9 @@ namespace Kiralynok
 
             Console.WriteLine();
             t.Megjelenit();
+
+            Console.WriteLine("Melyik sor?");
+            t.UresOszlop(1);
 
 
             Console.ReadKey();
