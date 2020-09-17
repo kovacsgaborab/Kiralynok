@@ -124,8 +124,9 @@ namespace Kiralynok
             Console.WriteLine();
             t.Megjelenit();
 
-            
-            if (t.UresOszlop(1)==true)
+            Console.WriteLine("Melyik sor?");
+            int a = int.Parse(Console.ReadLine());
+            if (t.UresOszlop(a)==true)
             {
                 Console.WriteLine("Az oszlop üres");
             }
@@ -133,8 +134,9 @@ namespace Kiralynok
             {
                 Console.WriteLine("Az oszlop nem üres");
             }
-
-            if (t.UresSor(1)==true)
+            Console.WriteLine("Melyik oszlop?");
+            int b = int.Parse(Console.ReadLine());
+            if (t.UresSor(b)==true)
             {
                 Console.WriteLine("A sor üres");
             }
@@ -142,6 +144,7 @@ namespace Kiralynok
             {
                 Console.WriteLine("A sor nem üres");
             }
+
             Console.ReadKey();
         }
 
