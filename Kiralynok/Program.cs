@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace Kiralynok
         private int UresOszlopokSzama;
         private int UresSorokSzama;
 
+        
+
         public void Elhelyez(int N)
         {
             //1. Véletlen helyiérték létrehozása
@@ -22,14 +25,23 @@ namespace Kiralynok
             //      - Véletlen sor és oszlop kell
             //      - Elhelyezzük a K-t
             //              HA!!! üres --> nincs benne "#"
-
             Random vel = new Random();
-            int sor = vel.Next(0, 8);
-            int oszlop = vel.Next(0, 8);
-            if (T[sor, oszlop] == '#')
+
+
+
+            for (int i = 0; i < N; i++)
             {
+                int sor = vel.Next(0, 8);
+                int oszlop = vel.Next(0, 8);
+                while (T[sor, oszlop] == 'K')
+                {
+                    sor = vel.Next(0, 8);
+                    oszlop = vel.Next(0, 8);
+
+                }
                 T[sor, oszlop] = 'K';
             }
+
         }
         public void FajlbaIr()
         {
@@ -78,7 +90,7 @@ namespace Kiralynok
 
             Console.WriteLine("Üres Ttábla");
             t.Megjelenit();
-            t.Elhelyez(1);
+            t.Elhelyez(8);
             Console.WriteLine();
             t.Megjelenit();
 
