@@ -91,6 +91,7 @@ namespace Kiralynok
             Console.WriteLine("Üres Ttábla");
             t.Megjelenit();
             t.Elhelyez(64);
+
             Console.WriteLine();
             t.Megjelenit();
 
