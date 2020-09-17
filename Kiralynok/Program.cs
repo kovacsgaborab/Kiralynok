@@ -71,23 +71,42 @@ namespace Kiralynok
         }
         public bool UresOszlop(int oszlop)
         {
-            int a = 0;
+            //int a = 0;
             bool vank = true;
-            while (T[a, oszlop] != 'K')
+
+            for (int i = 0; i < 8; i++)
             {
-                if (T[a, oszlop] == 'K')
+                if (T[i, oszlop] == 'K')
                 {
                     vank = false;
+                    break;
                 }
-                a++;
             }
+            //while (T[a, oszlop] != 'K')
+            //{
+            //    if (T[a, oszlop] == 'K')
+            //    {
+            //        vank = false;
+            //    }
+            //    a++;
+            //}
 
             return vank;
-
         }
         public bool UresSor(int sor)
         {
-            return false;
+            bool vank = true;
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (T[sor, i] == 'K')
+                {
+                    vank = false;
+                    break;
+                }
+            }
+
+            return vank;
         }
     }
     class Program
@@ -100,15 +119,29 @@ namespace Kiralynok
 
             Console.WriteLine("Üres Ttábla");
             t.Megjelenit();
-            t.Elhelyez(64);
+            t.Elhelyez(8);
 
             Console.WriteLine();
             t.Megjelenit();
 
-            Console.WriteLine("Melyik sor?");
-            t.UresOszlop(1);
+            
+            if (t.UresOszlop(1)==true)
+            {
+                Console.WriteLine("Az oszlop üres");
+            }
+            else
+            {
+                Console.WriteLine("Az oszlop nem üres");
+            }
 
-
+            if (t.UresSor(1)==true)
+            {
+                Console.WriteLine("A sor üres");
+            }
+            else
+            {
+                Console.WriteLine("A sor nem üres");
+            }
             Console.ReadKey();
         }
 
