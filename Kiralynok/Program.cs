@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,9 +42,18 @@ namespace Kiralynok
             }
 
         }
-        public void FajlbaIr()
+        public void FajlbaIr(StreamWriter fajl)
         {
-            
+            //fajl.WriteLine("Ez egy szöveg.");
+            for (int i = 0; i < 8; i++)
+            {
+                string sor = "";
+                for (int j = 0; j < 8; j++)
+                {
+                    sor += T[i, j];
+                }
+                fajl.WriteLine(sor);
+            }
         }
         public void Megjelenit()
         {
@@ -138,7 +148,7 @@ namespace Kiralynok
             Console.WriteLine("Királynők feladat");
 
             Tabla t = new Tabla('#');
-
+            
             Console.WriteLine("Üres Ttábla");
             t.Megjelenit();
             t.Elhelyez(8);
@@ -184,6 +194,30 @@ namespace Kiralynok
                 }
             }
             Console.Write("{0}, {1}", uressor, uresoszlop);
+
+
+
+
+
+            Tabla[] tablak = new Tabla[64]; //9. feladat            
+
+            StreamWriter ki = new StreamWriter("adatok.txt");
+
+            for (int i = 0; i < 64; i++)
+            {
+                tablak[i] = new Tabla('*');
+            }
+
+            for (int i = 0; i < 64; i++)
+            {
+                tablak[i].Elhelyez(i + 1);
+                tablak[i].FajlbaIr(ki);
+                ki.WriteLine();
+            }
+
+            ki.Close();
+
+
 
             Console.ReadKey();
         }
